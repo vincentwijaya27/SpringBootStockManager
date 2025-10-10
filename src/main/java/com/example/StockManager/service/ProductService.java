@@ -1,5 +1,8 @@
 package com.example.StockManager.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.StockManager.model.Product;
@@ -17,6 +20,10 @@ public class ProductService {
     public Product getProductById(Long id){
         return productRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Product tidak ditemukan " + id));
+    }
+
+    public List<Product> getAllProducts(){
+        return productRepository.findAll();
     }
 
 }
