@@ -16,7 +16,7 @@ public class ProductCategory {
     @SequenceGenerator(name = "prodCat_seq", sequenceName = "prodCat_sequence", allocationSize = 50)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prodCat_seq")
     @Column(name = "product_category_id")
-    private Long Id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
