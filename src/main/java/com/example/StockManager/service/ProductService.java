@@ -1,5 +1,6 @@
 package com.example.StockManager.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,5 +25,19 @@ public class ProductService {
     public List<Product> getAllProducts(){
         return productRepository.findAll();
     }
+
+    
+public Product save(Product product) {
+    if (product.getQuantity() == null) {
+        product.setQuantity(BigDecimal.ZERO);
+    }
+
+    if (product.getName() != null) {
+        product.setName(product.getName().trim().toUpperCase());
+    }
+
+    return productRepository.save(product);
+}
+
 
 }
